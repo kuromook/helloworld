@@ -20,12 +20,10 @@ jobs:
 
     steps:
       - checkout
-      
+
       dependencies:
         pre:
-          - sudo apt-get update
-          - sudo apt-get install -y libgconf-2-4 chromium-chromedriver
-          - sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
+          - sudo apt-get update; sudo apt-get install -y libgconf-2-4 chromium-chromedriver; sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
 
       # Download and cache dependencies
       - restore_cache:
