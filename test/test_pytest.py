@@ -11,4 +11,5 @@ import pytest
     ]
 )
 def test_1(x, y):
+    print(10)
     assert x == y
