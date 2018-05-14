@@ -28,10 +28,10 @@ jobs:
           - v1-dependencies-
 
       - run:
-        name: apt-get install chrome-driver
-        command:
-          sudo apt-get install libxi6 libgconf-2-4 chromium-chromedriver
-          sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
+          name: apt-get install chrome-driver
+          command:
+            sudo apt-get install libxi6 libgconf-2-4 chromium-chromedriver
+            sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
         
 
       - run:
