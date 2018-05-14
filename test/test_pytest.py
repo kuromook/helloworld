@@ -1,9 +1,14 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-def test_2():
-    a = 1
-    b = 2
-    assert a != b
+import pytest
 
-
+@pytest.mark.parametrize(
+    "x, y", [
+        #("aaa", "bbb"),
+        ("aaa", "aaa"),
+        ("bbb", "bbb")
+    ]
+)
+def test_1(x, y):
+    assert x == y
