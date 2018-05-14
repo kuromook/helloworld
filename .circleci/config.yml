@@ -17,6 +17,12 @@ jobs:
 
     working_directory: ~/repo
 
+    dependencies:
+      pre:
+        - sudo apt-get update
+        - sudo apt-get install -y libgconf-2-4 chromium-chromedriver
+        - sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
+
     steps:
       - checkout
 
@@ -27,11 +33,6 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run:
-          name: apt-get install chrome-driver
-          command:
-            sudo apt-get install libxi6 libgconf-2-4 chromium-chromedriver
-            sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
         
 
       - run:
