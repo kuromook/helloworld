@@ -49,7 +49,7 @@ jobs:
           command: |
             . venv/bin/activate
             #python simpleserver.py
-            pytest test_pytest.py
+            pytest test/test_pytest.py
 
       - store_artifacts:
           path: test-reports
