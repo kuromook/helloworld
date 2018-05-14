@@ -52,10 +52,16 @@ jobs:
 
       
       - run:
-          name: run tests
+          name: run requests tests
           command: |
             . venv/bin/activate
             pytest test/test_request.py
+
+      - run:
+          name: run selenium tests
+          command: |
+            . venv/bin/activate
+            pytest test/test_selenium_test.py
 
       - store_artifacts:
           path: test-reports
