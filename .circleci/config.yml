@@ -33,10 +33,11 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
+
       - run:
           name: run server
-          command:
-            python simpleserver.py
+          command: python simpleserver.py
+          background: true
 
       - save_cache:
           paths:
