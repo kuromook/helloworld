@@ -36,9 +36,7 @@ jobs:
       - run:
           name: run server
           command:
-            #export PYTHONPATH="/home/ubuntu/flask_template/example/application"
             python simpleserver.py:
-              background: true
 
       - save_cache:
           paths:
