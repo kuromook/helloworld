@@ -1,2 +1,11 @@
 tmp/
+
+# 環境
 helloworldEnv/
+
+# cache files
+.pytest_cache/
+*.pyc
+
+# IDE / editor 設定
+.vscode/
