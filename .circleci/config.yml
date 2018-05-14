@@ -17,6 +17,11 @@ jobs:
 
     working_directory: ~/repo
 
+    dependencies:
+      pre:
+        sudo apt-get install libxi6 libgconf-2-4 chromium-chromedriver
+        sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
+
     steps:
       - checkout
 
