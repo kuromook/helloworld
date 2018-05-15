@@ -10,16 +10,17 @@ jobs:
       # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
       - image: circleci/python:3.6.1-browsers
         environment:
-          MYSQL_HOST: 127.0.0.1
-          MYSQL_DB: model_manager
-          MYSQL_USER: root
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
-          MYSQL_PASSWORD:
+          - MYSQL_HOST=127.0.0.1
+          - MYSQL_DB=model_manager
+          - MYSQL_USER=root
+          - MYSQL_ALLOW_EMPTY_PASSWORD=true
+          - MYSQL_PASSWORD=
       - image: circleci/mysql:5.7
         command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
         environment:
-          MYSQL_USER: root
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
+          - MYSQL_USER=root
+          - MYSQL_ALLOW_EMPTY_PASSWORD=true 
+          - MYSQL_ROOT_HOST=%   
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
@@ -31,10 +32,9 @@ jobs:
       - checkout
 
       - run:
-          name: setup mysql DB
+          name: DB setup
           command: |
-            mysql --protocol=tcp -h 127.0.0.1 -u root model_manager <  test/test_dump.sql
-
+            mysql -u root < test/test_dump.sql
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -68,7 +68,8 @@ jobs:
       # https://pytest.org
       # https://nose.readthedocs.io
 
-      
+    
+
       - run:
           name: run requests tests
           command: |
