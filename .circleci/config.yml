@@ -31,6 +31,11 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
+      - run:
+          name: setup mysql DB
+          command: |
+            sudo apt-get install -f  mysql-server
+            mysql -u root model_manager <  test/test_dump.sql
 
       - run:
           name: install dependencies
@@ -39,11 +44,6 @@ jobs:
             . venv/bin/activate
             pip install -r requirements.txt
 
-      - run:
-          name: setup mysql DB
-          command: |
-            sudo apt install mysql
-            mysql -u root model_manager <  test/test_dump.sql
 
       - run:
           name: run server
