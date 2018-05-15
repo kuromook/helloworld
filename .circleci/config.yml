@@ -9,7 +9,6 @@ jobs:
       # specify the version you desire here
       # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
       - image: circleci/python:3.6.1-browsers
-        - run: sudo apt install mysql-client
 
       - image: mysql:5.7
         environment:
@@ -32,6 +31,8 @@ jobs:
           - v1-dependencies-{{ checksum "requirements.txt" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
+
+      - run: sudo apt install mysql-client
 
       - run:
           name: setup mysql DB
