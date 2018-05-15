@@ -32,7 +32,7 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: sudo apt install mysql-client=5.7
+      - run: sudo apt-get update; sudo apt-get install mysql-client=5.7
 
       - run:
           name: setup mysql DB
