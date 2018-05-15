@@ -20,18 +20,18 @@ jobs:
     steps:
       - checkout
 
+      - run:
+          name: setup mysql DB
+          command: |
+            sudo apt install -y mysql-client
+            mysql -u root model_manager <  test/test_dump.sql
+
       # Download and cache dependencies
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "requirements.txt" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
-
-
-      - run:
-          name: setup mysql DB
-          command: |
-            mysql -u root model_manager <  test/test_dump.sql
 
       - run:
           name: install dependencies
