@@ -39,11 +39,6 @@ jobs:
           - v1-dependencies-
 
       - run:
-          name: db setup
-          command: |
-            mysql -h 127.0.0.1 -u root < test/test_dump.sql
-
-      - run:
           name: install dependencies
           command: |
             python3 -m venv venv
