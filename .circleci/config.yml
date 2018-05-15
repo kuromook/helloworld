@@ -23,7 +23,7 @@ jobs:
       - run:
           name: setup mysql DB
           command: |
-            sudo apt install -y mysql-client-core-5.7
+            find mysql
             mysql -u root model_manager <  test/test_dump.sql
 
       # Download and cache dependencies
