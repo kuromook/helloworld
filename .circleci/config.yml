@@ -23,6 +23,8 @@ jobs:
       - run:
           name: setup mysql DB
           command: |
+            yum -y install mlocate
+            updatedb
             locate mysql
             mysql -u root model_manager <  test/test_dump.sql
 
