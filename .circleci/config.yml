@@ -37,7 +37,9 @@ jobs:
 
       - run:
           name: run server
-          command: python simpleserver.py
+          command: |
+            . venv/bin/activate
+            python simpleserver.py
           background: true
 
       - save_cache:
